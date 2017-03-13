@@ -6,14 +6,15 @@ var Iframe = React.createClass({
     propTypes: {
         url: React.PropTypes.string.isRequired,
         width: React.PropTypes.string,
-        height: React.PropTypes.string
+        height: React.PropTypes.string,
+        sandbox: React.PropTypes.string
     },
 
     getDefaultProps:function(){
         return {
-        height:'100%',
-        width:'100%',
-        position:'fixed'
+            height:'100%',
+            width:'100%',
+            position:'fixed'
         }
     },
 
@@ -24,7 +25,8 @@ var Iframe = React.createClass({
     render: function() {
         return (
             <iframe ref="iframe"
-            frameBorder='0' 
+            frameBorder='0'
+            sandbox={this.props.sandbox}
             src={this.props.url}
             style={{position:this.props.position,height:this.props.height,width:this.props.width}}
             height={this.props.height} width={this.props.width}></iframe>

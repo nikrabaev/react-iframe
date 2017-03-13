@@ -6,7 +6,8 @@ var Iframe = React.createClass({
     propTypes: {
         url: React.PropTypes.string.isRequired,
         width: React.PropTypes.string,
-        height: React.PropTypes.string
+        height: React.PropTypes.string,
+        sandbox: React.PropTypes.string
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -24,6 +25,7 @@ var Iframe = React.createClass({
     render: function render() {
         return React.createElement("iframe", { ref: "iframe",
             frameBorder: "0",
+            sandbox: this.props.sandbox,
             src: this.props.url,
             style: { position: this.props.position, height: this.props.height, width: this.props.width },
             height: this.props.height, width: this.props.width });
